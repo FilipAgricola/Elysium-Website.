@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elysium Car Detailing | Premium Vehicle Care</title>
+    <title>Elysium Car Detailing | Premium Automotive Care</title>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* CORE BRAND IDENTITY & GLOBAL STYLES */
+        /* --- GLOBAL DESIGN RULES --- */
         :root {
             --bg-black: #000000;
             --accent-red: #B21818;
             --text-white: #FFFFFF;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Roboto', sans-serif;
+            --text-gray: #CCCCCC;
             --transition-speed: 0.4s;
             --border-radius: 10px;
         }
@@ -30,28 +30,16 @@
         body {
             background-color: var(--bg-black);
             color: var(--text-white);
-            font-family: var(--font-body);
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, .price-text {
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        h1, h2, h3, .price, .luxury-text, .nav-link {
+            font-family: 'Playfair Display', serif;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition-speed);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* NAVIGATION HEADER */
+        /* --- NAVIGATION HEADER --- */
         header {
             position: fixed;
             top: 0;
@@ -68,31 +56,32 @@
 
         .logo-container img {
             height: 60px;
-            width: auto;
-            border-radius: 5px;
+            border-radius: var(--border-radius);
         }
 
-        nav ul {
+        nav {
             display: flex;
             gap: 30px;
         }
 
-        nav ul li a {
-            font-size: 0.9rem;
-            font-weight: 700;
+        .nav-link {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 1px;
             cursor: pointer;
+            transition: color var(--transition-speed);
         }
 
-        nav ul li a:hover, nav ul li a.active {
+        .nav-link:hover, .nav-link.active {
             color: var(--accent-red);
         }
 
-        /* PAGE VISIBILITY LOGIC */
+        /* --- SPA VIEW HANDLING --- */
         .page-view {
             display: none;
-            padding-top: 90px; /* Space for fixed header */
-            min-height: 100vh;
-            animation: fadeIn 0.8s ease-in-out;
+            padding-top: 90px; /* Offset for sticky header */
+            animation: fadeIn 0.8s ease forwards;
         }
 
         .page-view.active {
@@ -104,38 +93,43 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* REUSABLE COMPONENTS */
+        /* --- REUSABLE COMPONENTS --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
         }
 
-        .btn-primary {
+        .btn-premium {
             background-color: var(--accent-red);
             color: var(--text-white);
-            padding: 15px 35px;
-            border-radius: var(--border-radius);
-            font-weight: 700;
-            display: inline-block;
-            cursor: pointer;
             border: none;
+            padding: 15px 35px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: var(--border-radius);
+            cursor: pointer;
             transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: inline-block;
+            text-decoration: none;
         }
 
-        .btn-primary:hover {
+        .btn-premium:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(178, 24, 24, 0.6);
+            box-shadow: 0 0 15px var(--accent-red);
         }
 
-        .accent-line {
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-red);
-            margin: 20px auto;
+        .section-tagline {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent-red);
+            margin-top: 50px;
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* HOME PAGE */
+        /* --- HOME PAGE --- */
         .hero {
             height: 90vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/RR.jpg');
@@ -148,32 +142,12 @@
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .welcome-section {
-            text-align: center;
-            padding: 100px 10%;
-        }
-
-        .welcome-section h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .welcome-section p {
-            font-size: 1.3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            color: #ccc;
-        }
+        .welcome-section { text-align: center; max-width: 900px; margin: 0 auto; }
+        .welcome-section h2 { font-size: 3rem; margin-bottom: 30px; }
+        .welcome-section p { font-size: 1.25rem; color: var(--text-gray); }
 
         .why-choose-grid {
             display: grid;
@@ -182,131 +156,103 @@
             margin-top: 60px;
         }
 
-        .grid-item {
-            padding: 30px;
-            border-left: 2px solid var(--accent-red);
-            background: #0a0a0a;
-            border-radius: var(--border-radius);
-            transition: transform var(--transition-speed);
-        }
-
-        .grid-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .grid-item h3 {
-            font-size: 1.5rem;
+        .why-card h3 {
+            font-size: 1.8rem;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
-        .grid-item h3::before {
+        .why-card h3::before {
             content: "•";
             color: var(--accent-red);
             margin-right: 15px;
-            font-size: 2rem;
         }
 
-        .grid-item p {
-            font-size: 1rem;
-            color: #bbb;
-        }
+        /* --- SERVICES PAGE --- */
+        .vehicle-section { margin-bottom: 100px; text-align: center; }
+        .vehicle-header { margin-bottom: 40px; }
+        .vehicle-header h2 { font-size: 3rem; }
+        .vehicle-header span { font-size: 1.2rem; color: var(--text-gray); display: block; margin-top: 10px; }
 
-        .restore-pride {
-            text-align: center;
-            margin-top: 60px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--accent-red);
-        }
-
-        /* SERVICES & PRICING */
-        .vehicle-category {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .vehicle-img {
+        .vehicle-image {
             width: 100%;
-            max-width: 700px;
-            height: 350px;
-            object-fit: cover;
+            max-width: 800px;
             border-radius: var(--border-radius);
-            margin-bottom: 30px;
-            border: 1px solid #333;
+            margin-bottom: 50px;
+            border: 1px solid rgba(178, 24, 24, 0.2);
         }
 
-        .pricing-table {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 30px;
         }
 
-        .price-card {
+        .service-box {
             background: #0a0a0a;
-            padding: 40px 20px;
-            border-radius: var(--border-radius);
-            border: 1px solid #1a1a1a;
-            transition: var(--transition-speed);
-        }
-
-        .price-card:hover {
-            border-color: var(--accent-red);
-            transform: scale(1.02);
-        }
-
-        .price-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .price-text {
-            color: var(--accent-red);
-            font-size: 2.2rem;
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        .price-card ul {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .price-card ul li {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            color: #ddd;
-        }
-
-        .add-ons {
-            background: #0a0a0a;
+            border: 1px solid #222;
             padding: 40px;
             border-radius: var(--border-radius);
-            margin-top: 40px;
-            border: 1px dashed var(--accent-red);
+            transition: transform var(--transition-speed), border-color var(--transition-speed);
+            text-align: left;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-red);
+        }
+
+        .service-box h4 { font-size: 1.8rem; margin-bottom: 10px; }
+        .service-box .price { font-size: 2.2rem; color: var(--accent-red); margin-bottom: 20px; display: block; }
+
+        .service-box ul { list-style: none; }
+        .service-box ul li { margin-bottom: 10px; font-size: 0.95rem; color: var(--text-gray); }
+        .service-box ul li::before { content: "• "; color: var(--accent-red); }
+
+        .add-ons-container {
+            background: #0a0a0a;
+            border: 2px solid var(--accent-red);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            margin-top: 50px;
+        }
+
+        .add-ons-container h2 { text-align: center; margin-bottom: 30px; font-size: 2.5rem; }
+        
+        .add-on-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .add-on-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
         }
 
         .disclaimer {
+            text-align: center;
             margin-top: 40px;
+            color: var(--text-gray);
             font-size: 1.1rem;
-            color: #888;
-            text-align: center;
         }
 
-        .tagline-eternal {
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: var(--accent-red);
-            margin-top: 60px;
-        }
-
-        /* COMMUNITY & REVIEWS */
+        /* --- COMMUNITY PAGE --- */
         .carousel-container {
-            width: 100%;
             overflow: hidden;
-            position: relative;
             padding: 40px 0;
+            position: relative;
+            background: #050505;
         }
 
         .carousel-track {
@@ -315,9 +261,7 @@
             animation: scroll 40s linear infinite;
         }
 
-        .carousel-container:hover .carousel-track {
-            animation-play-state: paused;
-        }
+        .carousel-track:hover { animation-play-state: paused; }
 
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -326,29 +270,14 @@
 
         .review-card {
             width: 400px;
-            background: #0a0a0a;
-            padding: 40px;
+            background: #111;
+            padding: 30px;
             margin: 0 20px;
             border-radius: var(--border-radius);
-            border: 1px solid #1a1a1a;
+            border-left: 4px solid var(--accent-red);
         }
 
-        .stars {
-            color: #FFFFFF;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            letter-spacing: 5px;
-        }
-
-        .review-text {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .reviewer {
-            font-weight: 700;
-            color: var(--accent-red);
-        }
+        .stars { color: #FFFFFF; font-size: 1.2rem; margin-bottom: 15px; }
 
         .carousel-controls {
             display: flex;
@@ -357,155 +286,112 @@
             margin-top: 30px;
         }
 
-        .nav-btn {
-            background: none;
-            border: 1px solid var(--accent-red);
-            color: var(--text-white);
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition-speed);
-        }
-
-        .nav-btn:hover {
-            background: var(--accent-red);
-        }
-
         .community-callout {
             text-align: center;
-            padding: 80px 15%;
-            background: #0a0a0a;
-            border-radius: var(--border-radius);
-            margin-top: 80px;
+            max-width: 800px;
+            margin: 80px auto;
+            font-size: 1.3rem;
+            line-height: 1.8;
         }
 
-        /* Q&A PAGE (ACCORDION) */
-        .accordion-item {
-            margin-bottom: 15px;
-            border: 1px solid #1a1a1a;
-            border-radius: var(--border-radius);
-            overflow: hidden;
+        /* --- Q&A PAGE --- */
+        .faq-item {
+            border-bottom: 1px solid #222;
+            margin-bottom: 10px;
         }
 
-        .accordion-header {
+        .faq-question {
             width: 100%;
             padding: 20px;
-            background: #0a0a0a;
+            background: none;
+            border: none;
             color: var(--text-white);
             text-align: left;
-            border: none;
-            font-family: var(--font-body);
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
-            transition: background var(--transition-speed);
+            align-items: center;
+            transition: color 0.3s;
         }
 
-        .accordion-header:hover {
-            background: #151515;
-            color: var(--accent-red);
-        }
+        .faq-question:hover { color: var(--accent-red); }
 
-        .accordion-content {
+        .faq-answer {
             max-height: 0;
-            padding: 0 20px;
-            background: #000;
             overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            color: #bbb;
+            transition: max-height 0.5s ease-out, padding 0.3s ease;
+            padding: 0 20px;
+            color: var(--text-gray);
         }
 
-        .accordion-item.active .accordion-content {
+        .faq-item.active .faq-answer {
             max-height: 300px;
-            padding: 20px;
+            padding-bottom: 20px;
         }
 
-        /* CONTACT US */
-        .contact-layout {
+        /* --- CONTACT PAGE --- */
+        .contact-stack {
             display: flex;
             flex-direction: column;
             gap: 40px;
-            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .email-box {
-            width: 100%;
-            max-width: 600px;
+        .contact-box {
             background: #0a0a0a;
-            border: 2px solid var(--accent-red);
-            box-shadow: 0 0 15px rgba(178, 24, 24, 0.4);
-            border-radius: var(--border-radius);
-            padding: 30px;
-        }
-
-        .email-box h2 {
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .email-box input, .email-box textarea {
-            width: 100%;
-            background: #000;
-            border: 1px solid #333;
-            padding: 15px;
-            color: var(--text-white);
-            border-radius: 5px;
-            font-family: var(--font-body);
-        }
-
-        .email-box textarea {
-            height: 150px;
-            resize: none;
-        }
-
-        .form-submit-container {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .booking-badge {
-            width: 100%;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--accent-red);
-            box-shadow: 0 0 15px rgba(178, 24, 24, 0.4);
+            border: 1px solid var(--accent-red);
             border-radius: var(--border-radius);
             padding: 40px;
-            text-align: center;
+            box-shadow: 0 0 15px rgba(178, 24, 24, 0.1);
         }
 
-        .booking-badge img {
-            width: 50px;
-            margin-bottom: 20px;
-        }
+        .contact-box h2 { margin-bottom: 25px; }
 
-        .booking-badge p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
+        .form-group { margin-bottom: 20px; }
 
-        /* MODAL SUCCESS */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        input, textarea {
             width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
+            padding: 15px;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-red);
+        }
+
+        .form-footer { display: flex; justify-content: flex-end; }
+
+        .booking-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .booking-badge img { width: 50px; }
+
+        /* --- MODAL --- */
+        #success-modal {
             display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
-            z-index: 2000;
         }
 
-        .modal-box {
+        .modal-content {
             background: #000;
             border: 2px solid var(--accent-red);
             padding: 50px;
@@ -515,24 +401,19 @@
             max-width: 500px;
         }
 
-        .modal-close {
+        .close-modal {
             position: absolute;
             top: 15px;
             right: 20px;
-            color: #FFF;
+            color: white;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* FOOTER */
+        /* --- FOOTER --- */
         footer {
-            background: #000;
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid #222;
             padding: 40px 5%;
-            margin-top: 80px;
-        }
-
-        .footer-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -540,103 +421,91 @@
             gap: 20px;
         }
 
-        .footer-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
+        .footer-info { display: flex; align-items: center; gap: 10px; }
+        .footer-info img { width: 20px; height: 20px; }
 
-        .footer-info img {
-            width: 18px;
-        }
-
-        /* RESPONSIVENESS */
         @media (max-width: 900px) {
-            .pricing-table, .why-choose-grid {
-                grid-template-columns: 1fr;
-            }
+            .services-grid, .why-choose-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
-            header { flex-direction: column; height: auto; padding: 20px; }
-            nav ul { gap: 15px; margin-top: 15px; }
+            header { padding: 0 20px; height: auto; flex-direction: column; padding-bottom: 10px; }
+            nav { gap: 10px; flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION HEADER -->
     <header>
         <div class="logo-container">
             <img src="images/LOGO.jpg" alt="Elysium Logo">
         </div>
         <nav>
-            <ul>
-                <li><a onclick="showView('home')" id="link-home" class="active">HOME</a></li>
-                <li><a onclick="showView('services')" id="link-services">SERVICES & PRICING</a></li>
-                <li><a onclick="showView('community')" id="link-community">COMMUNITY</a></li>
-                <li><a onclick="showView('qa')" id="link-qa">Q&A</a></li>
-                <li><a onclick="showView('contact')" id="link-contact">CONTACT US</a></li>
-            </ul>
+            <a class="nav-link active" onclick="showPage('home')">HOME</a>
+            <a class="nav-link" onclick="showPage('services')">SERVICES & PRICING</a>
+            <a class="nav-link" onclick="showPage('community')">COMMUNITY</a>
+            <a class="nav-link" onclick="showPage('qa')">Q&A</a>
+            <a class="nav-link" onclick="showPage('contact')">CONTACT US</a>
         </nav>
     </header>
 
     <!-- HOME PAGE -->
-    <section id="home" class="page-view active">
-        <div class="hero">
+    <main id="home" class="page-view active">
+        <section class="hero">
             <h1>Premium Detailing, Exceptional Results</h1>
             <p>Elevating every drive through exceptional vehicle care</p>
-            <button class="btn-primary" onclick="showView('services')">View Our Services</button>
-        </div>
+            <button class="btn-premium" onclick="showPage('services')">View Our Services</button>
+        </section>
 
-        <div class="container welcome-section">
+        <section class="container welcome-section">
             <h2>The Elysium Standard</h2>
-            <div class="accent-line"></div>
             <p>Your vehicle deserves more than a simple wash. At Elysium Car Detailing, we provide professional interior and exterior detailing services designed to restore, protect, and enhance your vehicle's appearance. Whether you drive a daily commuter, a luxury vehicle, or your dream car, we treat every vehicle with precision, care, and attention to detail.</p>
             
             <div class="why-choose-grid">
-                <div class="grid-item">
+                <div class="why-card">
                     <h3>Premium Products and Equipment</h3>
-                    <p>We use only the highest grade chemicals and tools to ensure your vehicle's surfaces are treated with the safest and most effective methods.</p>
+                    <p>We use only industry-leading chemicals and professional-grade tools.</p>
                 </div>
-                <div class="grid-item">
+                <div class="why-card">
                     <h3>Attention to Every Detail</h3>
-                    <p>From the crevices of your dashboard to the barrels of your wheels, no inch is left untouched by our specialists.</p>
+                    <p>No crevice is left untouched, from air vents to wheel barrels.</p>
                 </div>
-                <div class="grid-item">
+                <div class="why-card">
                     <h3>Professional and Friendly Service</h3>
-                    <p>A seamless experience from booking to delivery, centered around customer satisfaction and clear communication.</p>
+                    <p>Expect clear communication and a warm welcome every time.</p>
                 </div>
-                <div class="grid-item">
+                <div class="why-card">
                     <h3>Tailored Care for Every Vehicle</h3>
-                    <p>We understand that every car has unique needs. Our services are customized to provide the best possible outcome for your specific vehicle.</p>
+                    <p>We adapt our techniques based on your paint type and interior materials.</p>
                 </div>
-                <div class="grid-item">
+                <div class="why-card">
                     <h3>Transparent Pricing</h3>
-                    <p>No hidden fees. We provide clear, upfront costs based on the size and condition of your vehicle.</p>
+                    <p>No hidden fees. You know exactly what you are paying for.</p>
                 </div>
-                <div class="grid-item">
+                <div class="why-card">
                     <h3>Passion for Automotive Excellence</h3>
-                    <p>We don't just work on cars; we are enthusiasts who take pride in the art of detailing.</p>
+                    <p>We love cars as much as you do, and it shows in our work.</p>
                 </div>
             </div>
-            <p class="restore-pride">AT ELYSIUM CAR DETAILING, WE DON'T JUST CLEAN CARS—WE RESTORE PRIDE IN OWNERSHIP.</p>
-        </div>
-    </section>
+
+            <div class="section-tagline">
+                AT ELYSIUM CAR DETAILING, WE DON'T JUST CLEAN CARS—WE RESTORE PRIDE IN OWNERSHIP.
+            </div>
+        </section>
+    </main>
 
     <!-- SERVICES & PRICING PAGE -->
-    <section id="services" class="page-view">
-        <div class="container">
-            <h2 style="text-align:center; font-size: 3rem;">Services & Pricing</h2>
-            <div class="accent-line"></div>
-
+    <main id="services" class="page-view">
+        <section class="container">
             <!-- TYPE 1 -->
-            <div class="vehicle-category">
-                <img src="images/type1.jpg" alt="Sedan" class="vehicle-img">
-                <h3 style="margin-bottom: 30px;">TYPE 1 VEHICLES (Hatchbacks, Compacts, Smaller Sedans)</h3>
-                <div class="pricing-table">
-                    <div class="price-card">
-                        <h3>Interior Cleaning</h3>
-                        <span class="price-text">€49</span>
+            <div class="vehicle-section">
+                <div class="vehicle-header">
+                    <h2>TYPE 1 VEHICLES</h2>
+                    <span>(HATCHBACKS, COMPACTS, SMALLER SEDANS)</span>
+                </div>
+                <img src="images/type1.jpg" alt="Small Vehicle" class="vehicle-image">
+                <div class="services-grid">
+                    <div class="service-box">
+                        <h4>Interior Cleaning</h4>
+                        <span class="price">€49</span>
                         <ul>
                             <li>Full vacuuming</li>
                             <li>Dashboard & plastics cleaning</li>
@@ -644,36 +513,39 @@
                             <li>Window cleaning</li>
                             <li>Floor mat cleaning</li>
                             <li>Trunk vacuuming</li>
-                            <li>Odor removal</li>
                         </ul>
                     </div>
-                    <div class="price-card">
-                        <h3>Exterior Cleaning</h3>
-                        <span class="price-text">€39</span>
+                    <div class="service-box">
+                        <h4>Exterior Cleaning</h4>
+                        <span class="price">€39</span>
                         <ul>
-                            <li>Pre-wash & Hand wash</li>
+                            <li>Pre-wash</li>
+                            <li>Hand wash</li>
                             <li>Wheel & Tire cleaning</li>
                             <li>Window cleaning</li>
                             <li>Ceramic spray protection</li>
                             <li>Drying by hand</li>
                         </ul>
                     </div>
-                    <div class="price-card" style="border-color: var(--accent-red);">
-                        <h3>Full Cleaning</h3>
-                        <span class="price-text">€79</span>
-                        <p style="font-weight:700;">Complete care package combining both interior and exterior services.</p>
+                    <div class="service-box">
+                        <h4>Full Cleaning</h4>
+                        <span class="price">€79</span>
+                        <p>Complete care package combining both interior and exterior services for total restoration.</p>
                     </div>
                 </div>
             </div>
 
             <!-- TYPE 2 -->
-            <div class="vehicle-category">
-                <img src="images/type2.jpg" alt="SUV" class="vehicle-img">
-                <h3 style="margin-bottom: 30px;">TYPE 2 VEHICLES (SUVs, Larger Sedans, Estates, Luxury, Muscle)</h3>
-                <div class="pricing-table">
-                    <div class="price-card">
-                        <h3>Interior Cleaning</h3>
-                        <span class="price-text">€59</span>
+            <div class="vehicle-section">
+                <div class="vehicle-header">
+                    <h2>TYPE 2 VEHICLES</h2>
+                    <span>(SUVS, LARGER SEDANS, ESTATES, LUXURY, MUSCLE)</span>
+                </div>
+                <img src="images/type2.jpg" alt="Large Vehicle" class="vehicle-image">
+                <div class="services-grid">
+                    <div class="service-box">
+                        <h4>Interior Cleaning</h4>
+                        <span class="price">€59</span>
                         <ul>
                             <li>Full vacuuming</li>
                             <li>Dashboard & plastics cleaning</li>
@@ -681,287 +553,305 @@
                             <li>Window cleaning</li>
                             <li>Floor mat cleaning</li>
                             <li>Trunk vacuuming</li>
-                            <li>Odor removal</li>
                         </ul>
                     </div>
-                    <div class="price-card">
-                        <h3>Exterior Cleaning</h3>
-                        <span class="price-text">€49</span>
+                    <div class="service-box">
+                        <h4>Exterior Cleaning</h4>
+                        <span class="price">€49</span>
                         <ul>
-                            <li>Pre-wash & Hand wash</li>
+                            <li>Pre-wash</li>
+                            <li>Hand wash</li>
                             <li>Wheel & Tire cleaning</li>
                             <li>Window cleaning</li>
                             <li>Ceramic spray protection</li>
                             <li>Drying by hand</li>
                         </ul>
                     </div>
-                    <div class="price-card" style="border-color: var(--accent-red);">
-                        <h3>Full Cleaning</h3>
-                        <span class="price-text">€99</span>
-                        <p style="font-weight:700;">Complete care package combining both interior and exterior services.</p>
+                    <div class="service-box">
+                        <h4>Full Cleaning</h4>
+                        <span class="price">€99</span>
+                        <p>Complete care package combining both interior and exterior services for total restoration.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="add-ons">
-                <h3 style="text-align: center; margin-bottom: 20px;">ADD-ONS & EXTRAS</h3>
-                <ul style="max-width: 500px; margin: 0 auto; list-style: circle;">
-                    <li><strong>Engine Bay Cleaning:</strong> +€15 (Deep clean for a cleaner engine bay)</li>
-                    <li><strong>Odor Removal:</strong> +€10 (Eliminates unpleasant odors and refreshes the interior)</li>
-                    <li><strong>Extremely Dirty Vehicle Fee:</strong> Individually assessed based on condition</li>
-                </ul>
+            <!-- ADD ONS -->
+            <div class="add-ons-container">
+                <h2>PREMIUM ADD-ONS</h2>
+                <div class="add-on-item">Engine Bay Cleaning: +€15</div>
+                <div class="add-on-item">Odor Removal: +€10</div>
+                <div class="add-on-item">Extremely Dirty Fee: Assessed Individually</div>
             </div>
 
             <p class="disclaimer">Every vehicle is different. Final pricing may vary depending on vehicle size, condition, and requested services. Contact us for a personalized quote.</p>
-            <h3 class="tagline-eternal">DETAIL IS ETERNAL • EXCELLENCE IS STANDARD</h3>
-        </div>
-    </section>
+            <div class="section-tagline">DETAIL IS ETERNAL • EXCELLENCE IS STANDARD</div>
+        </section>
+    </main>
 
-    <!-- COMMUNITY & REVIEWS PAGE -->
-    <section id="community" class="page-view">
-        <div class="container">
-            <h2 style="text-align:center; font-size: 3rem;">Community Reviews</h2>
-            <div class="accent-line"></div>
-
+    <!-- COMMUNITY PAGE -->
+    <main id="community" class="page-view">
+        <section class="container">
+            <h2 style="text-align:center; font-size: 3rem; margin-bottom: 40px;">What Our Clients Say</h2>
             <div class="carousel-container">
-                <div class="carousel-track" id="reviewTrack">
-                    <!-- Cards doubled for seamless infinite scroll -->
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Duplicate for infinite loop -->
                     <div class="review-card">
-                        <div class="stars">*****</div>
-                        <p class="review-text">"My car looked better than the day I bought it. The attention to detail was incredible and the service was outstanding."</p>
-                        <p class="reviewer">— Michael K.</p>
+                        <div class="stars">★★★★★</div>
+                        <p>"My car looked better than the day I bought it. The attention to detail was incredible and the service was outstanding."</p>
+                        <strong style="display:block; margin-top:15px;">— Michael K.</strong>
                     </div>
                     <div class="review-card">
-                        <div class="stars">*****</div>
-                        <p class="review-text">"Professional, friendly, and highly skilled. The interior cleaning exceeded my expectations."</p>
-                        <p class="reviewer">— Sarah M.</p>
+                        <div class="stars">★★★★★</div>
+                        <p>"Professional, friendly, and highly skilled. The interior cleaning exceeded my expectations."</p>
+                        <strong style="display:block; margin-top:15px;">— Sarah M.</strong>
                     </div>
                     <div class="review-card">
-                        <div class="stars">*****</div>
-                        <p class="review-text">"The paint correction completely transformed my vehicle. I highly recommend the Elysium Team."</p>
-                        <p class="reviewer">— David R.</p>
+                        <div class="stars">★★★★★</div>
+                        <p>"The paint correction completely transformed my vehicle. I highly recommend the Elysium Team."</p>
+                        <strong style="display:block; margin-top:15px;">— David R.</strong>
                     </div>
                     <div class="review-card">
-                        <div class="stars">*****</div>
-                        <p class="review-text">"Fantastic experience from start to finish. Transparent pricing and amazing results."</p>
-                        <p class="reviewer">— Peter L.</p>
+                        <div class="stars">★★★★★</div>
+                        <p>"Fantastic experience from start to finish. Transparent pricing and amazing results."</p>
+                        <strong style="display:block; margin-top:15px;">— Peter L.</strong>
                     </div>
-                    <!-- Duplicate for loop -->
+                    <!-- Duplicate set -->
                     <div class="review-card">
-                        <div class="stars">*****</div>
-                        <p class="review-text">"My car looked better than the day I bought it. The attention to detail was incredible and the service was outstanding."</p>
-                        <p class="reviewer">— Michael K.</p>
+                        <div class="stars">★★★★★</div>
+                        <p>"My car looked better than the day I bought it. The attention to detail was incredible and the service was outstanding."</p>
+                        <strong style="display:block; margin-top:15px;">— Michael K.</strong>
                     </div>
                     <div class="review-card">
-                        <div class="stars">*****</div>
-                        <p class="review-text">"Professional, friendly, and highly skilled. The interior cleaning exceeded my expectations."</p>
-                        <p class="reviewer">— Sarah M.</p>
+                        <div class="stars">★★★★★</div>
+                        <p>"Professional, friendly, and highly skilled. The interior cleaning exceeded my expectations."</p>
+                        <strong style="display:block; margin-top:15px;">— Sarah M.</strong>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The paint correction completely transformed my vehicle. I highly recommend the Elysium Team."</p>
+                        <strong style="display:block; margin-top:15px;">— David R.</strong>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Fantastic experience from start to finish. Transparent pricing and amazing results."</p>
+                        <strong style="display:block; margin-top:15px;">— Peter L.</strong>
                     </div>
                 </div>
             </div>
-
             <div class="carousel-controls">
-                <button class="nav-btn" onclick="moveCarousel(-1)">PREVIOUS</button>
-                <button class="nav-btn" onclick="moveCarousel(1)">NEXT</button>
+                <button class="btn-premium" onclick="shiftCarousel(-1)">←</button>
+                <button class="btn-premium" onclick="shiftCarousel(1)">→</button>
             </div>
 
             <div class="community-callout">
-                <h3>Join The Elysium Community</h3>
-                <p style="margin-top:20px; font-size:1.2rem; color:#ccc;">
-                    Stay connected with us for: Vehicle care tips • Exclusive offers • Detailing updates • Customer showcases • New service announcements. Become part of a growing community that shares a passion for clean, protected, and beautifully maintained vehicles.
-                </p>
+                Join The Elysium Community. Stay connected with us for:<br>
+                Vehicle care tips • Exclusive offers • Detailing updates • Customer showcases • New service announcements.<br><br>
+                Become part of a growing community that shares a passion for clean, protected, and beautifully maintained vehicles.
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Q&A PAGE -->
-    <section id="qa" class="page-view">
-        <div class="container">
-            <h2 style="text-align:center; font-size: 3rem;">Frequently Asked Questions</h2>
-            <div class="accent-line"></div>
-            
-            <div id="qa-container">
-                <!-- Q&A Items will be generated or hardcoded here -->
+    <main id="qa" class="page-view">
+        <section class="container">
+            <h2 style="text-align:center; font-size: 3rem; margin-bottom: 40px;">Frequently Asked Questions</h2>
+            <div id="faqList">
+                <!-- 15 Items -->
+                <div class="faq-item">
+                    <button class="faq-question">Q: How long does a full detailing service take? <span>+</span></button>
+                    <div class="faq-answer">A: It depends on the vehicle size and condition. Generally, a Type 1 vehicle takes 3–5 hours, while a Type 2 vehicle can take 5–8 hours for a complete interior and exterior restoration.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Do I need to book my appointment in advance? <span>+</span></button>
+                    <div class="faq-answer">A: Yes, we operate strictly by appointment to ensure every vehicle receives our undivided attention and precision care. Please call us to secure your time slot.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: What is the benefit of the Ceramic Spray Protection included in the exterior package? <span>+</span></button>
+                    <div class="faq-answer">A: Our ceramic spray adds a highly hydrophobic layer over your paint. It repels water, prevents dirt from bonding to the surface, and gives your car a deep, mirror-like gloss that lasts for weeks.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: What if my car is extremely dirty? <span>+</span></button>
+                    <div class="faq-answer">A: We take pride in tackling heavy challenges! Heavily soiled vehicles (excessive pet hair, deep mud, severe stains) require extra time and products, which is why they are individually assessed upon arrival.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: How often should I get my car detailed? <span>+</span></button>
+                    <div class="faq-answer">A: For optimal maintenance, we recommend a full detail every 4 to 6 months, with basic maintenance washes every few weeks to preserve the finish.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Do you offer mobile detailing, or do I bring my car to you? <span>+</span></button>
+                    <div class="faq-answer">A: To ensure the highest quality results in a controlled environment, all detailing services are performed at our dedicated Elysium studio.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: What is paint decontamination? <span>+</span></button>
+                    <div class="faq-answer">A: It is a process where we use specialized clay bars and iron removers to extract embedded dirt, brake dust, and industrial fallout from your clear coat, leaving the paint as smooth as glass.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Can you remove deep scratches from my paint? <span>+</span></button>
+                    <div class="faq-answer">A: Standard detailing removes minor swirling and enhances gloss. Deep scratches that you can feel with your fingernail usually require advanced paint correction or a body shop.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: How long does the Ceramic Spray Protection last? <span>+</span></button>
+                    <div class="faq-answer">A: Depending on weather conditions and how the vehicle is stored, our premium ceramic spray sealant typically provides 2 to 3 months of durable, water-beading protection.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Is engine bay cleaning safe for my car? <span>+</span></button>
+                    <div class="faq-answer">A: Yes! We use low-pressure water, specialized degreasers, and carefully cover sensitive electrical components to ensure a safe and thorough cleaning.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Do you clean child car seats? <span>+</span></button>
+                    <div class="faq-answer">A: Due to safety liability and manufacturer guidelines, we do not uninstall, clean, or reinstall child safety seats. We ask that you remove them prior to your appointment.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Can you remove hard water spots from windows? <span>+</span></button>
+                    <div class="faq-answer">A: Minor water spots can be removed during our standard glass cleaning. Severe, baked-on mineral deposits may require specialized glass polishing at an additional cost.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: What types of payment do you accept? <span>+</span></button>
+                    <div class="faq-answer">A: We accept cash, direct bank transfers, and all major credit/debit cards upon the completion of your service.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: What happens if it rains right after I get my exterior detailed? <span>+</span></button>
+                    <div class="faq-answer">A: Because we apply a hydrophobic ceramic sealant during our exterior process, the rainwater will simply bead up and roll off your paint, keeping it cleaner for much longer!</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Q: Do you offer multi-stage machine paint polishing or correction? <span>+</span></button>
+                    <div class="faq-answer">A: We are currently working on expanding our studio equipment! Machine polishing is not available right now, but it will be coming very soon to our service menu.</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- CONTACT US PAGE -->
-    <section id="contact" class="page-view">
-        <div class="container">
-            <h2 style="text-align:center; font-size: 3rem;">Contact Us</h2>
-            <div class="accent-line"></div>
-
-            <div class="contact-layout">
-                <!-- Email Form -->
-                <div class="email-box">
+    <!-- CONTACT PAGE -->
+    <main id="contact" class="page-view">
+        <section class="container">
+            <div class="contact-stack">
+                <div class="contact-box">
                     <h2>Do you want to ask us something?</h2>
                     <form id="contactForm" action="https://formspree.io/f/xgobrpyb" method="POST">
                         <div class="form-group">
                             <input type="email" name="email" placeholder="Your Email Address..." required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Type your question here..." required></textarea>
+                            <textarea name="message" rows="5" placeholder="Type your question here..." required></textarea>
                         </div>
-                        <div class="form-submit-container">
-                            <button type="submit" class="btn-primary">Send!</button>
+                        <div class="form-footer">
+                            <button type="submit" class="btn-premium">Send!</button>
                         </div>
                     </form>
                 </div>
 
-                <!-- Booking Badge -->
-                <div class="booking-badge">
+                <div class="contact-box booking-badge">
                     <img src="images/phone.png" alt="Phone">
-                    <h3>Ready to Experience the Elysium Standard?</h3>
-                    <p>Call us today for a direct booking or consultation.</p>
-                    <button class="btn-primary" style="font-size: 1.5rem;">+421 919 074 766</button>
+                    <h3>Ready to Experience the Elysium Standard? Call us today for a direct booking or consultation.</h3>
+                    <button class="btn-premium" style="font-size: 1.5rem;">+421 919 074 766</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- SUCCESS MODAL -->
-    <div id="successModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="modal-close" onclick="closeModal()">X</span>
-            <h2 style="color: var(--accent-red); margin-bottom: 20px;">Success!</h2>
-            <p>Thank you for contacting us. We will get back to you shortly.</p>
-        </div>
-    </div>
-
-    <!-- GLOBAL FOOTER -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-row">
-            <p>&copy; 2026 Elysium Car Detailings</p>
-            <div class="footer-info">
-                <img src="images/phone.png" alt="Phone">
-                <span>+421 919 074 766</span>
-            </div>
-            <div class="footer-info">
-                <img src="images/email.png" alt="Email">
-                <span>elysium.cardetailing@gmail.com</span>
-            </div>
-            <div class="footer-info">
-                <img src="images/instagram.png" alt="Instagram">
-                <span>elysium_cardetailing</span>
-            </div>
+        <div class="footer-info">© 2026 Elysium Car Detailing</div>
+        <div class="footer-info">
+            <img src="images/phone.png" alt=""> +421 919 074 766
+        </div>
+        <div class="footer-info">
+            <img src="images/email.png" alt=""> elysium.cardetailing@gmail.com
+        </div>
+        <div class="footer-info">
+            <img src="images/instagram.png" alt=""> elysium_cardetailing
         </div>
     </footer>
 
+    <!-- SUCCESS MODAL -->
+    <div id="success-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">✕</span>
+            <h2 style="color: var(--accent-red);">Thank you!</h2>
+            <p style="margin-top: 20px;">Thank you for contacting us. We will get back to you shortly.</p>
+        </div>
+    </div>
+
     <script>
-        /** ROUTING LOGIC **/
-        function showView(viewId) {
-            // Hide all views
+        // SPA NAVIGATION LOGIC
+        function showPage(pageId) {
+            // Update active link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if(link.textContent.toLowerCase().includes(pageId.split('-')[0])) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Switch views
             document.querySelectorAll('.page-view').forEach(view => {
                 view.classList.remove('active');
             });
-            // Show requested view
-            document.getElementById(viewId).classList.add('active');
-            
-            // Update Nav links
-            document.querySelectorAll('nav ul li a').forEach(link => {
-                link.classList.remove('active');
-            });
-            document.getElementById('link-' + (viewId === 'qa' ? 'qa' : viewId)).classList.add('active');
+            document.getElementById(pageId).classList.add('active');
             
             // Scroll to top
-            window.scrollTo(0, 0);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        /** Q&A ACCORDION DATA **/
-        const qaData = [
-            { q: "How long does a full detailing service take?", a: "It depends on the vehicle size and condition. Generally, a Type 1 vehicle takes 3–5 hours, while a Type 2 vehicle can take 5–8 hours for a complete interior and exterior restoration." },
-            { q: "Do I need to book my appointment in advance?", a: "Yes, we operate strictly by appointment to ensure every vehicle receives our undivided attention and precision care. Please call us to secure your time slot." },
-            { q: "What is the benefit of the Ceramic Spray Protection included in the exterior package?", a: "Our ceramic spray adds a highly hydrophobic layer over your paint. It repels water, prevents dirt from bonding to the surface, and gives your car a deep, mirror-like gloss that lasts for weeks." },
-            { q: "What if my car is extremely dirty?", a: "We take pride in tackling heavy challenges! Heavily soiled vehicles (excessive pet hair, deep mud, severe stains) require extra time and products, which is why they are individually assessed upon arrival." },
-            { q: "How often should I get my car detailed?", a: "For optimal maintenance, we recommend a full detail every 4 to 6 months, with basic maintenance washes every few weeks to preserve the finish." },
-            { q: "Do you offer mobile detailing, or do I bring my car to you?", a: "To ensure the highest quality results in a controlled environment, all detailing services are performed at our dedicated Elysium studio." },
-            { q: "What is paint decontamination?", a: "It is a process where we use specialized clay bars and iron removers to extract embedded dirt, brake dust, and industrial fallout from your clear coat, leaving the paint as smooth as glass." },
-            { q: "Can you remove deep scratches from my paint?", a: "Standard detailing removes minor swirling and enhances gloss. Deep scratches that you can feel with your fingernail usually require advanced paint correction or a body shop." },
-            { q: "How long does the Ceramic Spray Protection last?", a: "Depending on weather conditions and how the vehicle is stored, our premium ceramic spray sealant typically provides 2 to 3 months of durable, water-beading protection." },
-            { q: "Is engine bay cleaning safe for my car?", a: "Yes! We use low-pressure water, specialized degreasers, and carefully cover sensitive electrical components to ensure a safe and thorough cleaning." },
-            { q: "Do you clean child car seats?", a: "Due to safety liability and manufacturer guidelines, we do not uninstall, clean, or reinstall child safety seats. We ask that you remove them prior to your appointment." },
-            { q: "Can you remove hard water spots from windows?", a: "Minor water spots can be removed during our standard glass cleaning. Severe, baked-on mineral deposits may require specialized glass polishing at an additional cost." },
-            { q: "What types of payment do you accept?", a: "We accept cash, direct bank transfers, and all major credit/debit cards upon the completion of your service." },
-            { q: "What happens if it rains right after I get my exterior detailed?", a: "Because we apply a hydrophobic ceramic sealant during our exterior process, the rainwater will simply bead up and roll off your paint, keeping it cleaner for much longer!" },
-            { q: "Do you offer multi-stage machine paint polishing or correction?", a: "We are currently working on expanding our studio equipment! Machine polishing is not available right now, but it will be coming very soon to our service menu." }
-        ];
-
-        const qaContainer = document.getElementById('qa-container');
-        qaData.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = 'accordion-item';
-            div.innerHTML = `
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    ${index + 1}. Q: ${item.q}
-                    <span>+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>A: ${item.a}</p>
-                </div>
-            `;
-            qaContainer.appendChild(div);
-        });
-
-        function toggleAccordion(header) {
-            const item = header.parentElement;
-            const wasActive = item.classList.contains('active');
-            
-            // Close all
-            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-            
-            // Open clicked
-            if (!wasActive) {
-                item.classList.add('active');
-            }
-        }
-
-        /** CAROUSEL MANUAL CONTROLS **/
-        let currentOffset = 0;
-        const track = document.getElementById('reviewTrack');
-        
-        function moveCarousel(direction) {
-            // Stop animation temporarily
+        // CAROUSEL MANUAL CONTROLS
+        let track = document.getElementById('carouselTrack');
+        let scrollAmount = 0;
+        function shiftCarousel(direction) {
+            // Briefly pause CSS animation
             track.style.animation = 'none';
-            // Calculate shift
-            currentOffset -= direction * 440; // 400 width + 40 margin
+            scrollAmount += direction * 440; // Card width + margins
+            track.style.transition = 'transform 0.5s ease-in-out';
+            track.style.transform = `translateX(${-scrollAmount}px)`;
             
-            // Reset if out of bounds (simple version)
-            if (currentOffset > 0) currentOffset = -1760;
-            if (currentOffset < -1760) currentOffset = 0;
-
-            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-            track.style.transform = `translateX(${currentOffset}px)`;
-            
-            // Resume infinite scroll after delay
+            // Reset to infinite loop after movement if needed
             setTimeout(() => {
-                track.style.transition = 'none';
                 track.style.animation = 'scroll 40s linear infinite';
-            }, 3000);
+                track.style.transition = 'none';
+            }, 600);
         }
 
-        /** FORM SUBMISSION **/
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const response = await fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
+        // Q&A ACCORDION
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                item.classList.toggle('active');
+                btn.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
             });
-
-            if (response.ok) {
-                document.getElementById('successModal').style.display = 'flex';
-                contactForm.reset();
-            } else {
-                alert("There was an error. Please try again or call us.");
-            }
         });
+
+        // CONTACT FORM LOGIC (FORMSPREE)
+        const contactForm = document.getElementById('contactForm');
+        const modal = document.getElementById('success-modal');
+
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        modal.style.display = 'flex';
+                        contactForm.reset();
+                    }
+                }).catch(error => {
+                    alert("There was an issue sending your message. Please try again.");
+                });
+            });
+        }
 
         function closeModal() {
-            document.getElementById('successModal').style.display = 'none';
+            modal.style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
